@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-3">
+      <div class="sticky-top">
+        <ul class="list-group" style="width: 250px; margin-left: 50px;">
+            <li>Search name:</li>
+            <input 
+                  type="text" 
+                  style="margin-top: 15px;" 
+                  [(ngModel)]="_listFilter"
+                  (input)="onFilterBy()" />
+                  <span *ngIf="_listFilter">Searching By: {{_listFilter}}</span>
+            <br><br>            
+            <li (click)="onClickAllCategories()" style="cursor: pointer;">All Categories :</li>
+            <br>
+            <li 
+               class="list-group-item list-group-item-action" 
+               *ngFor="let product of productCategory$ | async | uniqueCategory"
+               (click)="onClickCategories(product.productType)"
+                style="cursor: pointer;">
+              <b>{{product.productType}}</b>
+            </li>
+            </ul>
+          </div>
+    </div>
+    <div class="col">
+        <div class="row" >
+
+        <ng-container *ngFor="let product of filteredProducts$ | async">
+        <div class="col" style="margin-top: 50px;">
+            <div class="card" style="width: 18rem;">
+                <img 
+                    class="card-img-top" 
+                    src="{{product.imageUrl}}" 
+                    alt="Card image cap"
+                    [routerLink]="['/cakes',product.id]" style="cursor: pointer;">
+                <div class="card-body">   
+                        <h5 class="card-title">
+                            <b [routerLink]="['/cakes',product.id]" style="cursor: pointer;">
+                                <i>{{product.productName}}</i> 
+                            </b> 
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{product.productPrice | currency:"INR":"symbol":"1.2-2"}}
+                        </h5>   
+                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                  <div class='row'>
+                    <div class='col-md-4'>
+                      <app-star [rating]="product.starRating"></app-star>
+                    </div>
+                    <div class='col-md-4'>({{product.starRating}}/5)</div>
+                  </div>
+                  <br>
+                  <ul>
+                    <li>Type  : {{product.productType}}</li>
+                    <li>Weight : {{product.productWeight}}</li>
+                    <li>Occasion : {{product.productOccasion}}</li>
+                  </ul>
+                  <a href="#" class="btn btn-primary">Add to Cart &nbsp; <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+        </ng-container>
+
+    </div>
+
+</div>
+</div>
+<div class="alert alert-danger"
+     *ngIf="errorMessage$ | async as errorMessage">
+  {{ errorMessage }}
+</div>

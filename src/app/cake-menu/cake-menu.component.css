@@ -1,0 +1,9 @@
+.sticky-top {
+    top: 100px;
+}
+
+.card-img-top {
+    width: 240px;
+    height: 200px;
+    margin-left: 23px;
+}

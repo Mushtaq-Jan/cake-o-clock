@@ -1,0 +1,52 @@
+[
+  {
+    "productId": 1,
+    "productName": "Black Forest",
+    "productPrice": 100,
+    "productType": "Cake",
+    "productOccasion": "Birthday",
+    "productWeight": "1Kg",
+    "starRating": 4,
+    "imageUrl": "assets/images/blackforest.jpg"
+  },
+  {
+    "productId": 2,
+    "productName": "Red Velvet",
+    "productPrice": 100,
+    "productType": "pastry",
+    "productOccasion": "Party",
+    "productWeight": "200g",
+    "starRating": 4.4,
+    "imageUrl": "assets/images/redvelvet.jpg"
+  },
+  {
+    "productId": 3,
+    "productName": "Choco Chips",
+    "productPrice": 100,
+    "productType": "Cookies",
+    "productOccasion": "Convocation",
+    "productWeight": "1Kg",
+    "starRating": 5,
+    "imageUrl": "assets/images/chococookies.jpg"
+  },
+  {
+    "productId": 4,
+    "productName": "Choco Lava",
+    "productPrice": 100,
+    "productType": "Cake",
+    "productOccasion": "Birthday",
+    "productWeight": "1Kg",
+    "starRating": 4,
+    "imageUrl": "assets/images/chocolava.jpg"
+  },
+  {
+    "productId": 5,
+    "productName": "Vannila Dip",
+    "productPrice": 100,
+    "productType": "Milk Shakes",
+    "productOccasion": "Party",
+    "productWeight": "400g",
+    "starRating": 3.5,
+    "imageUrl": "assets/images/vanilla.jpg"
+  }
+]

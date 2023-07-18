@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-3">
+        <img 
+        class="img"       
+        src="{{product?.imageUrl}}"
+        alt="Card image cap" 
+        style="margin-left: 50px;"/>
+    </div>
+    <div class="col">
+        <div class="card" style="height: 28rem; width: 45rem; margin-top: 10px; margin-left: 175px;">
+            <div class="card-header text-center">
+              Get in 20% Offer
+            </div>
+            <div class="card-body">
+              <div class='row'>
+                <div class='col-md-4'>
+                    <h3 class="card-title"><i>{{product?.productName}}</i></h3>
+                  <app-star [rating]="product?.starRating"></app-star>
+                  <div>({{product?.starRating}}/5 Customer's Rating)</div>
+                </div> 
+                <div class="col" style="margin-left: 40%;" ><h3>{{product?.productPrice | currency: "INR"}}</h3></div>             
+              </div>
+              <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+              <br>
+              <ul class="list-group" style="width: 250px; margin-left: 200px;" >
+                <li class="list-group-item">Type: {{product?.productType}}</li>
+                <li class="list-group-item">Weight: {{product?.productWeight}}</li>
+                <li class="list-group-item">Occassion: {{product?.productOccasion}}</li>
+              </ul>
+              <br><br>
+              <div class="col" style="margin-top: 20px;">
+                <a  class="btn btn-outline-dark" (click)="onBack()"><i class="fa fa-chevron-left"></i> &nbsp; Back</a> &nbsp;
+                <a  class="btn btn-outline-success" [routerLink]="['/cakes', product?.id, 'edit']"><i class="fa fa-edit"></i> &nbsp; Edit</a> &nbsp;
+                <a href="#" class="btn btn-outline-primary">Add to Cart &nbsp; <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+              </div>
+              
+            </div>
+            <div class="card-footer text-muted">
+              updated 2 days ago
+            </div>
+          </div>
+    </div>
+</div>
+
+
+<!-- <div class="card text-center">
+    <div class="card-header">
+      Get in 20% Offer
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div> -->

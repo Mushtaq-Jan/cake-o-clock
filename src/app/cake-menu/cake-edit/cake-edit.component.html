@@ -1,0 +1,121 @@
+<div class="card" style="height: 30rem; width: 70rem; margin-left: 50px;">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+
+    <div class="card-body">
+        <form novalidate (ngSubmit)="saveProduct()" [formGroup]="productForm">
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="productNameId">Product Name</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="productNameId" type="text" placeholder="Name (required)"
+                        formControlName="productName" />
+                    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class=" alert-danger" style="width: 300px; height: 30px;">
+                        <div *ngIf="name?.errors?.['required']" style="margin-left: 19px;">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="productImageId">Image Url</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="productImageId" type="text" placeholder="Image (required)"
+                        formControlName="imageUrl" #imagePath />
+                    <span class="invalid-feedback">
+                        Code
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="productImgId">Image </label>
+                <div class="col-md-8">
+                    <img [src]="imagePath.value" class="img-responsive" style="max-height: 100px;">
+                    <span class="invalid-feedback">
+                        Code
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="priceId">Product Price</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="priceId" type="number" placeholder="price (required)"
+                        formControlName="productPrice" />
+                    <span class="invalid-feedback">
+                        Code
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="productTypeId">Product Type</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="productTypeId" type="text" placeholder="Type (required)"
+                        formControlName="productType" />
+                    <span class="invalid-feedback">
+                        Code
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="productWeightId">Product Weight</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="productWeightId" type="text" placeholder="Weight (required)"
+                        formControlName="productWeight" />
+                    <span class="invalid-feedback">
+                        Code
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="productOccassionId">Product Occassion</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="productOccassionId" type="text" placeholder="Occasion (required)"
+                        formControlName="productOccasion" />
+                    <span class="invalid-feedback">
+                        Code
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="starRatingId">Star Rating (1-5)</label>
+
+                <div class="col-md-8">
+                    <input class="form-control" id="starRatingId" type="text" placeholder="Rating (1-5)"
+                        formControlName="starRating" />
+                    <span class="invalid-feedback">
+                        rating
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group row mb-2">
+                <div class="offset-md-2 col-md-4">
+                    <button class="btn btn-primary mr-3" style="width:80px;" type="submit"
+                        [title]="productForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                        [disabled]="!productForm.valid">
+                        Save
+                    </button>
+                    <button class="btn btn-outline-secondary mr-3" style="width:80px; margin-left: 20px;" type="button"
+                        title="Cancel your edits" [routerLink]="['/cakes']">
+                        Cancel
+                    </button>
+                    <button class="btn btn-outline-warning" style="width:80px; margin-left: 20px;" type="button"
+                        title="Delete this product">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+    </div>
+</div>
